@@ -1,3 +1,8 @@
+external_softwares/
+test_source_codes/
+ml_models/
+test_codes/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
