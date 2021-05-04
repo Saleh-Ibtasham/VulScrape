@@ -63,3 +63,23 @@ def make_directories(working_directory):
     os.makedirs(corpus_path)
     os.makedirs(vector_path)
     os.makedirs(mode_input_path)
+
+def check_source(location):
+
+    destination_dir = "./sysevr/test_codes/"
+    source_dir = "./test_source_codes/" + location
+
+
+    filenames = os.listdir(destination_dir)
+    filenames.sort(key=int)
+    source_dir_name = source_dir.split("/")[-1]
+
+    if len(filenames) == 0:
+        return None
+
+    for subdir in filenames:
+        for folders in os.listdir(os.path.join(destination_dir,subdir)):
+            if location in folders:
+                return destination_dir+str(subdir)+"/"
+
+    return None

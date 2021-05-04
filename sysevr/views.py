@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import MultiPartParser, FileUploadParser
 from rest_framework.response import Response
 from .serializers import SourceCodeSerializer
-from .slicer.source_code_copy_utility import copy_source, make_directories
+from .slicer.source_code_copy_utility import copy_source, make_directories, check_source
 from .slicer.handle_node4j_server import run_graph_server, stop_graph_server
 from .slicer.get_cfg_relation import deliverCfg
 from .slicer.complete_PDG import *
@@ -15,6 +15,8 @@ from .slicer.slice_cleanup import clean_slices
 import time
 from .slicer.sysevr_model import getDetectionsSys
 from .vdpecker.vd_model import getDetectionsVd
+import json
+
 
 global working_code_directory
 
@@ -44,32 +46,37 @@ def sysevrlist(request):
     print(request.data)
     working_code_directory = request.data;
     vulnerable_cve_list = getDetectionsSys(working_code_directory)
-    print(vulnerable_cve_list)
-    return Response("getting there")
+    json_indexed_cve_list = json.loads(json.dumps(vulnerable_cve_list.to_json(orient="records")))
+    print(json_indexed_cve_list)
+    return Response(json_indexed_cve_list)
 
 @api_view(['Get','POST'])
 def vuldeepeckerlist(request):
     print(request.data)
-    working_code_directory = "./sysevr/test_codes/1/"
-    # vulnerable_cve_list = getDetectionsVd(working_code_directory)
-    # print(vulnerable_cve_list)
-    return Response("getting there vuldeepecker")
+    working_code_directory = request.data
+    vulnerable_cve_list = getDetectionsVd(working_code_directory)
+    json_indexed_cve_list = json.loads(json.dumps(vulnerable_cve_list.to_json(orient="records")))
+    print(json_indexed_cve_list)
+    return Response(json_indexed_cve_list)
 
 
 
 def slicer(source_code_location):
     global working_code_directory
-    working_code_directory = copy_source(source_code_location)
-    graph_config = run_graph_server(working_code_directory)
-    time.sleep(15.00)
-    print(working_code_directory, graph_config)
-    make_directories(working_code_directory)
-    deliverCfg(working_code_directory)
-    deliverePdg(working_code_directory)
-    deliverCallGraph(working_code_directory)
-    deliverSlicePoints(working_code_directory)
-    stop_graph_server()
-    deliverProgramSlices(working_code_directory)
-    # clean_slices(working_code_directory)
-    deliverCorpus(working_code_directory)
-    deliverVectors(working_code_directory)
+    working_code_directory = check_source(source_code_location)
+
+    if working_code_directory == None:
+        working_code_directory = copy_source(source_code_location)
+        graph_config = run_graph_server(working_code_directory)
+        time.sleep(15.00)
+        print(working_code_directory, graph_config)
+        make_directories(working_code_directory)
+        deliverCfg(working_code_directory)
+        deliverePdg(working_code_directory)
+        deliverCallGraph(working_code_directory)
+        deliverSlicePoints(working_code_directory)
+        stop_graph_server()
+        deliverProgramSlices(working_code_directory)
+        # clean_slices(working_code_directory)
+        deliverCorpus(working_code_directory)
+        deliverVectors(working_code_directory)

@@ -270,9 +270,7 @@ def deliverCfg(working_directory):
     # j.setGraphDbURL('http://localhost:7474/db/data/')
     j.connectToDatabase()
     all_func_node = getALLFuncNode(j)
-    print("here")
     for node in all_func_node:
-        print("here too")
         testID = getFuncFile(j, node._id)
         testID = testID.replace("\\","/")
         testID = testID.split('/')[-2]

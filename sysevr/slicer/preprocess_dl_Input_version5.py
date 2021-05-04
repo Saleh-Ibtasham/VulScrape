@@ -182,7 +182,7 @@ def process_sequences_shape(sequences, maxLen, vector_dim):
     for sequence in sequences:
         n = 0
         for value in sequence:
-            nb_samples[i][m][n] = value*11
+            nb_samples[i][m][n] = value*12
             n+= 1
             if (n>=vector_dim):
                 break
@@ -192,6 +192,27 @@ def process_sequences_shape(sequences, maxLen, vector_dim):
         # m += 1
         # if (m >= maxLen):
         #     break
+    return nb_samples
+
+
+def process_sequences_shape_vd(sequences, maxLen, vector_dim):
+    samples = len(sequences)
+    nb_samples = np.zeros((samples, maxLen, vector_dim))
+
+    i = 0
+
+    m = 0
+    for sequence in sequences:
+        n = 0
+        for value in sequence:
+            nb_samples[i][m][n] = value*3
+            n+= 1
+            if (n>=vector_dim):
+                break
+        i += 1
+        if (i >= samples):
+            break
+
     return nb_samples
 
 
@@ -206,6 +227,24 @@ def generator_of_data(data, labels, batchsize, maxlen, vector_dim):
         # yield (batched_input, batched_labels)
         i = i + batchsize
         
+        iter_num -= 1
+        yield batched_input
+        # if iter_num == 0:
+        #     iter_num = int(len(data) / batchsize)
+        #     i = 0
+
+
+def generator_of_data_vd(data, labels, batchsize, maxlen, vector_dim):
+    iter_num = int(len(data) / batchsize)
+    i = 0
+
+    while iter_num:
+        batchdata = data[i:i + batchsize]
+        batched_input = process_sequences_shape_vd(batchdata, maxLen=maxlen, vector_dim=vector_dim)
+        # batched_labels = labels[i:i + batchsize]
+        # yield (batched_input, batched_labels)
+        i = i + batchsize
+
         iter_num -= 1
         yield batched_input
         # if iter_num == 0:

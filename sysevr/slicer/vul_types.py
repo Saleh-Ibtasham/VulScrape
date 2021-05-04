@@ -1,0 +1,2 @@
+VULNERABILITY_FILE = ["api_slices.pkl", "arraysuse_slices.pkl", "expr_slices.pkl", "pointersuse_slices.pkl"]
+VULNERABILITY_TYPE = ["Library/API Function Call", "Array Usage", "Arithmetic Expression", "Pointer Usage"]

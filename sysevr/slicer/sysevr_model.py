@@ -3,10 +3,12 @@ from keras.layers.core import Masking, Dense, Dropout, Activation
 from keras.layers.recurrent import LSTM, GRU
 from keras.layers.wrappers import Bidirectional
 from keras import backend as K
+from .vul_types import VULNERABILITY_TYPE, VULNERABILITY_FILE
 import pickle
 import os
 import numpy as np
 from .preprocess_dl_Input_version5 import *
+from fastembed.predictor.lookup import *
 import math
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
@@ -43,6 +45,9 @@ def testrealdata(realtestpath, weightpath, maxlen, vector_dim, layers, dropout):
 
     print("Loading data...")
     vulnerable_list = []
+    df = pd.read_csv("./fastembed/ml_models/CVE_vector_list.csv", index_col=0)
+    cve_vector_list = df.iloc[:,2:].to_numpy()
+
     for subdir in os.listdir(realtestpath):
         print(subdir)
         for filename in os.listdir(os.path.join(realtestpath, subdir)):
@@ -50,21 +55,29 @@ def testrealdata(realtestpath, weightpath, maxlen, vector_dim, layers, dropout):
             f = open(realtestpath + subdir + "/" + filename, "rb")
             dataset,labelsfile,funcsfiles,filenamesfile,testcasesfile = pickle.load(f)
             f.close()
-            print(len(dataset))
             if len(dataset) == 0:
                 continue
-            batch_size = 32
+            # batch_size = 32
             test_generator = generator_of_data(dataset, labelsfile, len(dataset), maxlen, vector_dim)
-            all_test_samples = len(dataset)
-            steps_epoch = int(math.ceil(all_test_samples / batch_size))
+            # all_test_samples = len(dataset)
+            # steps_epoch = int(math.ceil(all_test_samples / batch_size))
 
             result_predict = model.predict_generator(test_generator, steps=1)
-            print(result_predict)
-            for i in range(len(result_predict)):
-                if result_predict[i][0] >= 0.5:
-                    vulnerable_list.append((subdir.split("%")[1], filename))
+            result_predict = np.concatenate([np.array(i) for i in result_predict])
+            max_result = np.amax(result_predict)
+            max_result_index = np.array(np.argmax(result_predict, axis=0), ndmin=1)
+            similar_cve = getCveSimilarity(cve_vector_list, dataset[max_result_index[0]])
+            similar_cve_df = df.iloc[similar_cve[1],:]
+
+            if max_result >= 0.5:
+                vulnerable_list.append((subdir.split("%")[1], max_result * 100,
+                                        VULNERABILITY_TYPE[VULNERABILITY_FILE.index(filename)], similar_cve_df["CVE_ID"]))
+
 
     K.clear_session()
+
+    vulnerable_list = getSimilarCveList(vulnerable_list)
+
     return vulnerable_list
 
 
