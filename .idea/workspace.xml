@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="65d9c80b-2961-4ca4-b66c-b7a62cda8f3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastembed/predictor/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastembed/predictor/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastembed/predictor/lookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastembed/predictor/lookup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_ui/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/react_ui/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysevr/slicer/sysevr_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/sysevr/slicer/sysevr_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysevr/vdpecker/vd_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/sysevr/vdpecker/vd_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysevr/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sysevr/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +121,10 @@
       <workItem from="1619329073287" duration="3629000" />
       <workItem from="1619867242398" duration="2245000" />
       <workItem from="1620038868738" duration="20804000" />
-      <workItem from="1620124373080" duration="13161000" />
+      <workItem from="1620124373080" duration="13779000" />
+      <workItem from="1620154459547" duration="596000" />
+      <workItem from="1620163372339" duration="1876000" />
+      <workItem from="1620171766620" duration="5677000" />
     </task>
     <servers />
   </component>

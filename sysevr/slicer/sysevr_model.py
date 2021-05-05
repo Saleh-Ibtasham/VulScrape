@@ -68,10 +68,10 @@ def testrealdata(realtestpath, weightpath, maxlen, vector_dim, layers, dropout):
             max_result_index = np.array(np.argmax(result_predict, axis=0), ndmin=1)
             similar_cve = getCveSimilarity(cve_vector_list, dataset[max_result_index[0]])
             similar_cve_df = df.iloc[similar_cve[1],:]
-
-            if max_result >= 0.5:
-                vulnerable_list.append((subdir.split("%")[1], max_result * 100,
-                                        VULNERABILITY_TYPE[VULNERABILITY_FILE.index(filename)], similar_cve_df["CVE_ID"]))
+            # print(max_result)
+            # if max_result >= 0.5:
+            vulnerable_list.append((subdir.split("%")[1], max_result * 100,
+                                    VULNERABILITY_TYPE[VULNERABILITY_FILE.index(filename)], similar_cve_df["CVE_ID"]))
 
 
     K.clear_session()

@@ -59,9 +59,9 @@ def getDetectionsVd(working_directory):
             similar_cve = getCveSimilarity(cve_vector_list, dataset[max_result_index[0]])
             similar_cve_df = df.iloc[similar_cve[1], :]
 
-            if max_result >= 0.45:
-                vulnerable_list.append((subdir.split("%")[1], max_result * 100,
-                                        VULNERABILITY_TYPE[VULNERABILITY_FILE.index(filename)], similar_cve_df["CVE_ID"]))
+            # if max_result >= 0.45:
+            vulnerable_list.append((subdir.split("%")[1], max_result * 100,
+                                    VULNERABILITY_TYPE[VULNERABILITY_FILE.index(filename)], similar_cve_df["CVE_ID"]))
 
     K.clear_session()
 

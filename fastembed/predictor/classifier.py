@@ -5,4 +5,4 @@ def get_result(X_test):
 
     Y_pred = clf.predict(X_test)
 
-    return Y_pred, (Y_pred>0.5)
+    return ((Y_pred * 100 * 5) % 100), (((Y_pred * 100 * 5) % 100) > 50.00)

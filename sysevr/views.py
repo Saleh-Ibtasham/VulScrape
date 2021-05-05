@@ -46,6 +46,8 @@ def sysevrlist(request):
     print(request.data)
     working_code_directory = request.data;
     vulnerable_cve_list = getDetectionsSys(working_code_directory)
+    # if vulnerable_cve_list == None:
+    #     return Response({})
     json_indexed_cve_list = json.loads(json.dumps(vulnerable_cve_list.to_json(orient="records")))
     print(json_indexed_cve_list)
     return Response(json_indexed_cve_list)
@@ -55,6 +57,8 @@ def vuldeepeckerlist(request):
     print(request.data)
     working_code_directory = request.data
     vulnerable_cve_list = getDetectionsVd(working_code_directory)
+    # if vulnerable_cve_list == None:
+    #     return Response({})
     json_indexed_cve_list = json.loads(json.dumps(vulnerable_cve_list.to_json(orient="records")))
     print(json_indexed_cve_list)
     return Response(json_indexed_cve_list)

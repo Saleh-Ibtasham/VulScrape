@@ -18,13 +18,12 @@ def getCveList(cve_list):
 
     print(result_cve_list)
 
-    print(result_feature_df,classifier_df)
     if classifier_df.shape[0] != 0:
         result_probability, result_truth = get_result(classifier_df.iloc[:,1:])
         print(result_probability,result_truth)
         result_feature_df["Exploited"] = result_truth
         print(result_feature_df["Exploited"])
-        result_feature_df["Exploited_score"] = result_probability * 100
+        result_feature_df["Exploited_score"] = result_probability
         print(result_feature_df["Exploited_score"])
 
 
@@ -38,7 +37,7 @@ def getCveSimilarity(df, data):
     result_similarities = cosine_similarity(data, df)
     max_similarity = np.amax(result_similarities[0])
     max_similarity_index = np.array(np.argmax(result_similarities[0], axis=0), ndmin=1)
-    print(max_similarity, max_similarity_index[0])
+    # print(max_similarity, max_similarity_index[0])
     result_feature_df.append(max_similarity)
     result_feature_df.append(max_similarity_index[0])
 
