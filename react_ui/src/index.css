@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.links {
+  margin: auto;
+  color: #ececec;
+}
+
+.links .link {
+  margin-right: 150px;
+}
+
+.my_toolbar{
+  background-color: rgb(36, 35, 35);
+}
+
+.my_text_container {
+  display: flex;
+}
+
+.my_upload_button {
+  color:rgb(255, 255, 255);
+  background-color: rgb(84, 165, 212);
+  margin:5px;
+}
+
+.my_search_button {
+  color:rgb(255, 255, 255);
+  background-color: rgb(84, 165, 212);
+  margin:5px;
+}
+
+.my_success_button {
+  background-color: rgb(107, 221, 107);
+}
+
+.my_delete_button {
+  color:rgb(255, 255, 255);
+  background-color: rgb(221, 71, 71);
+}
+
+.table-cell-trucate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my_download_text{
+  font-size:18px;
+  line-height:26px;
+}
+
+.material-icons{
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.my_tooltip_grid{
+  font-size:14px;
+}
