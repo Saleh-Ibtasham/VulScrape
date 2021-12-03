@@ -18,6 +18,7 @@ This section describes the essential packages and frameworks used for the projec
 - [Neo4j 2.1.8](https://community.chocolatey.org/packages/neo4j-community/2.1.8.20150617#dependencies)
 - [TensorFlow 1.14](https://github.com/tensorflow/tensorflow/releases/tag/v1.14.0-rc1)
 - [Gensim 3.8.3](https://pypi.org/project/gensim/3.8.3/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [React](https://reactjs.org/)
 - [Material-UI](https://mui.com/)
 
