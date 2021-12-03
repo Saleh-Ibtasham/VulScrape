@@ -10,7 +10,7 @@ All vulnerabilities that can be detected by VulScrape are listed under the [Nati
 
 ## Built With
 
-This section describes the essential packages and framework used for the project.
+This section describes the essential packages and frameworks used for the project.
 
 - [Python 3.7](https://www.python.org/downloads/release/python-370/)
 - [Django 3.1](https://www.djangoproject.com/download/)
