@@ -5,6 +5,7 @@
 [![Front-end](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![UI](https://img.shields.io/badge/Material--UI-0081CB?style=flat&logo=material-ui&logoColor=white)](https://mui.com/)
 [![Database](https://img.shields.io/badge/Neo4j-018bff?style=flat&logo=neo4j&logoColor=white)](https://community.chocolatey.org/packages/neo4j-community/2.1.8.20150617#dependencies)
+[![Database](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)](https://github.com/tensorflow/tensorflow/releases/tag/v1.14.0-rc1)
 [![License](https://img.shields.io/badge/license-MIT-lightgreen)](https://opensource.org/licenses/MIT)
 
