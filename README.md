@@ -1,11 +1,12 @@
 # VulScrape
 
+[![Language](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/downloads/release/python-370/)
 [![Platform](https://img.shields.io/badge/DJANGO-REST-ff1709?style=flat&logo=django&logoColor=white&color=ff1709&labelColor=gray)](https://www.django-rest-framework.org/)
 [![Front-end](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![UI](https://img.shields.io/badge/Material--UI-0081CB?style=flat&logo=material-ui&logoColor=white)](https://www.couchbase.com/products/mobile)
+[![UI](https://img.shields.io/badge/Material--UI-0081CB?style=flat&logo=material-ui&logoColor=white)](https://mui.com/)
 [![Database](https://img.shields.io/badge/Neo4j-018bff?style=flat&logo=neo4j&logoColor=white)](https://community.chocolatey.org/packages/neo4j-community/2.1.8.20150617#dependencies)
 [![Tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)](https://github.com/tensorflow/tensorflow/releases/tag/v1.14.0-rc1)
-[![License](https://img.shields.io/badge/license-MIT-lightgreen)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/badge/license-MIT-lightgreen)](https://opensource.org/licenses/MIT)
 
 ---
 
